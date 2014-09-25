@@ -50,7 +50,6 @@ class ApiClient
         return current($response->xpath('/results/common'));
     }
 
-
     // ------------------------------------ User Accounts --- //
 
     /**
@@ -106,7 +105,6 @@ class ApiClient
 
         return true;
     }
-
 
     // ------------------------------------ Principals --- //
 
