@@ -1,0 +1,21 @@
+{
+    "name": "platforg/adobe-connect",
+    "description": "Provides a PHP Client to interact with the Adobe Connect's API",
+    "keywords": ["Adobe","Connect","AdobeConnect","API","PHP"],
+    "type": "library",
+    "license": "Apache2",
+    "authors": [
+        {
+            "name": "Gustavo Burgi",
+            "email": "gustavoburgi@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "lib-curl": "*",
+        "ext-SimpleXML": "*"
+    },
+    "autoload": {
+        "psr-0": { "AdobeConnect\\": "src" }
+    }
+}
