@@ -4,7 +4,7 @@ namespace AdobeConnect;
 /**
  * ApiClient's extra functionalities.
  *
- * @see ApiClient
+ * @see    ApiClient
  *
  * @author Gustavo Burgi <gustavoburgi@gmail.com>
  */

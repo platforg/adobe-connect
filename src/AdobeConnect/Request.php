@@ -23,7 +23,7 @@ class Request
     public function __construct($host, $action, $params = array())
     {
         $this->action = $action;
-        $this->params = array_map(function($param) {
+        $this->params = array_map(function ($param) {
             return urlencode($param);
         }, $params);
         $this->uri = sprintf('?%s', http_build_query(array_merge(array('action' => $action), $params)));

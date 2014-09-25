@@ -6,7 +6,7 @@ namespace AdobeConnect;
  *
  * @author Gustavo Burgi <gustavoburgi@gmail.com>
  */
-class Config 
+class Config
 {
     /** @var    string      AdobeConnect URL */
     protected $host;
