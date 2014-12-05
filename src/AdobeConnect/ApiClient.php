@@ -20,7 +20,7 @@ class ApiClient
     {
         $this->connection = new Connection($config);
         $this->connection->connect();
-        $this->connection->logIn();
+        $this->connection->login();
     }
 
     /**
@@ -101,9 +101,19 @@ class ApiClient
             $params['password-old'] = $password_old;
         }
 
-        $this->call('user-update-pwd ', $params);
+        $this->call('user-update-pwd', $params);
 
         return true;
+    }
+
+    public function login($login, $password)
+    {
+        $params = array(
+            'login' => $login,
+            'password' => $password,
+        );
+
+        $this->call('login', $params);
     }
 
     // ------------------------------------ Principals --- //
@@ -280,18 +290,20 @@ class ApiClient
 
     /**
      * Returns a list of users who attended a Adobe Connect meeting. The data is returned in row elements, one for each
-     * person who attended. If the meeting hasn’t started or had no attendees, the response contains no rows.
+     * person who attended. If the meeting hasn't started or had no attendees, the response contains no rows.
      * The response does not include meeting hosts or users who were invited but did not attend.
      *
-     * @param int $sco_id The sco-id of a meeting
+     * @param int   $sco_id  The sco-id of a meeting
+     * @param array $filters A filter to reduce the volume of the response.
      *
      * @return array    An array with the list of users who attended a AdobeConnect meeting.
      *                  Each element is a \SimpleXMLElement object.
      */
-    public function reportMeetingAttendance($sco_id)
+    public function reportMeetingAttendance($sco_id, $filters = array())
     {
-        $response = $this->call('report-meeting-attendance', array(
-            'sco-id' => $sco_id,
+        $response = $this->call('report-meeting-attendance', array_merge(
+            array('sco-id' => $sco_id,),
+            $filters
         ));
 
         return $response->xpath('/results/report-meeting-attendance/row');
@@ -613,4 +625,4 @@ class ApiClient
 
         return true;
     }
-} 
+}

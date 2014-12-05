@@ -55,7 +55,7 @@ class Connection
         $this->connected = true;
     }
 
-    public function logIn()
+    public function login()
     {
         $this->checkIfIsConnected();
 
