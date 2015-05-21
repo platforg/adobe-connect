@@ -131,7 +131,7 @@ class Connection
     protected function setCookie($cookie)
     {
         $this->cookie = trim(base64_encode(mcrypt_encrypt(
-            MCRYPT_RIJNDAEL_256, '7e2d20j23a21d', $cookie, MCRYPT_MODE_ECB, $this->config->getSecret()
+            MCRYPT_RIJNDAEL_256, '7e2d20j23a21db9f', $cookie, MCRYPT_MODE_ECB, $this->config->getSecret()
         )));
 
         setcookie($this->config->getCookieName(), $this->cookie, (time() + 60 * 5), null, null, null, true);
@@ -150,7 +150,7 @@ class Connection
         if ($this->cookie) {
             return trim(utf8_encode(mcrypt_decrypt(
                 MCRYPT_RIJNDAEL_256,
-                '7e2d20j23a21d',
+                '7e2d20j23a21db9f',
                 base64_decode($this->cookie),
                 MCRYPT_MODE_ECB,
                 $this->config->getSecret()
