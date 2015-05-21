@@ -26,7 +26,7 @@ class Request
         $this->params = array_map(function ($param) {
             return urlencode($param);
         }, $params);
-        $this->uri = sprintf('?%s', http_build_query(array_merge(array('action' => $action), $params)));
+        $this->uri = sprintf('?%s', http_build_query(array_merge(array('action' => $action), $params), null, '&'));
         $this->url = sprintf('https://%s/api/xml%s', $host, $this->uri);
     }
 
