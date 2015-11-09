@@ -19,14 +19,14 @@ class AdobeConnectServiceProvider extends ServiceProvider {
      * @return void
      */
     public function register() {
-        $this->app->singleton('Adobe\Contracts\Connection', function ($app) {
+        $this->app->singleton('AdobeConnect', function ($app) {
             $config = $app['config'];
             $host = $config->get('adobe.host');
             $username = $config->get('adobe.username');
             $password = $config->get('adobe.password');
 
             $config = new Config($host, $username, $password);
-            return new Connection($config);
+            return new ApiClient($config);
         });
     }
 
