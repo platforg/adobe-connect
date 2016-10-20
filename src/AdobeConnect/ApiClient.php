@@ -273,6 +273,30 @@ class ApiClient
     }
 
     // ------------------------------------ Meetings --- //
+    
+    /**
+     * Enables or disables features in a meeting. 
+     * This action is used to manage features such as recording of meetings and control of pods. 
+     * For more information on usage, see Configure compliance settings. 
+     *
+     * @param string  $account_id  The ID of your Adobe Connect hosted account.
+     * For enterprise installations, the ID is 7. 
+     * For licensed installations, use common-info to get the ID.
+     * @param string  $feature_id  The ID of the feature to enable or disable.
+     * @param bool  $enable  Whether to enable the specified feature (true) or not (false).
+     *
+     * @return bool
+     */
+    public function meetingFeatureUpdate($account_id, $feature_id, $enable)
+    {
+        $response = $this->call('meeting-feature-update' array(
+            'account-id' => $account_id,
+            'feature-id' => $feature_id,
+            'enable'     => $enable
+        ));
+
+        return true;
+    }
 
     /**
      * Returns a list of Adobe Connect meetings that are currently in progress,
