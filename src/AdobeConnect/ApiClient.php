@@ -4,7 +4,7 @@ namespace AdobeConnect;
 /**
  * Provides a PHP Client to interact with the Adobe Connect's API
  *
- * @link   http://help.adobe.com/en_US/connect/9.0/webservices/WS26a970dc1da1c212717c4d5b12183254583-8000_SP1.html
+ * @link  https://helpx.adobe.com/adobe-connect/webservices/topics/action-reference.html
  *
  * @author Gustavo Burgi <gustavoburgi@gmail.com>
  */
