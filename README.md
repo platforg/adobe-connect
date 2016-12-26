@@ -27,6 +27,7 @@ $client = new AdobeConnect\ApiClient($config);
 // Call endpoints
 $info = $client->commonInfo();
 var_dump($info);
+
 // ...
 $scos = $client->scoSearch('term...');
 var_dump($scos);
