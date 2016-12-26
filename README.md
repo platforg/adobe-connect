@@ -33,7 +33,7 @@ var_dump($scos);
 // ...
 ```
 
-The methods names in the ApiClient class maintain a one-to-one relationship with the AdobeConnect's endpoints (in camelCase instead of hyphen).  
+The methods names in the ApiClient class maintain a one-to-one relationship with the [AdobeConnect's endpoints](https://helpx.adobe.com/adobe-connect/webservices/topics/action-reference.html) (in camelCase instead of hyphen).  
 Please, see the AdobeConnect\ApiClient for a complete list of endpoints implemented.
 Also, you can use/see AdobeConnect\ExtraApiClient for some custom methods.
 
