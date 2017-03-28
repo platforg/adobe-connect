@@ -570,11 +570,11 @@ class ApiClient
      * @return array    An array with a list of SCOs that have content matching the query.
      *                  Each element is a \SimpleXMLElement object.
      */
-    public function scoSearch($query)
+    public function scoSearch($query, array $filters = array())
     {
-        $response = $this->call('sco-search', array(
+        $response = $this->call('sco-search', array_merge(array(
             'query' => $query,
-        ));
+        ), $filters));
 
         return $response->xpath('/results/sco-search-info/sco');
     }
