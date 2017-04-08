@@ -27,7 +27,8 @@ class Request
             return urlencode($param);
         }, $params);
         $this->uri = sprintf('?%s', http_build_query(array_merge(array('action' => $action), $params), null, '&'));
-        $this->url = sprintf('https://%s/api/xml%s', $host, $this->uri);
+        $host = stripos($host, 'http') !== false ? $host : 'https://' . $host;
+        $this->url = sprintf('%s/api/xml%s', $host, $this->uri);
     }
 
     /** @return string */
