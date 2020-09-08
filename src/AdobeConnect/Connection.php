@@ -46,12 +46,8 @@ class Connection
      */
     public function connect()
     {
-        if (! $this->getCookie()) {
-            $response = $this->doRequest('common-info');
-
-            $this->setCookie($response->getXmlResponse()->common->cookie);
-        }
-
+        $response = $this->doRequest('common-info');
+        $this->setCookie($response->getXmlResponse()->common->cookie);
         $this->connected = true;
     }
 
@@ -134,7 +130,7 @@ class Connection
             MCRYPT_RIJNDAEL_256, '7e2d20j23a21db9f', $cookie, MCRYPT_MODE_ECB, $this->config->getSecret()
         )));
 
-        setcookie($this->config->getCookieName(), $this->cookie, (time() + 60 * 5), null, null, null, true);
+        setcookie($this->config->getCookieName(), $this->cookie, (time() + 60 * 2), null, null, null, true);
 
         return $this;
     }

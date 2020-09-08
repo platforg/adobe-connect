@@ -22,7 +22,7 @@ class Response
                 'The AdobeConnect\'s Server is returning an invalid status code.
                 Request: %s
                 Response: %s',
-                preg_replace('/password\=(.*)&/', 'password=***', $request->getUrl()),
+                preg_replace('/password\=(.*)&/', 'password=*******&', $request->getUrl()),
                 json_encode($this->xmlResponse)
             ));
         }
